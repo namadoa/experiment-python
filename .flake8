@@ -1,0 +1,41 @@
+[flake8]
+# it's not a bug that we aren't using all of hacking
+ignore = 
+    # H101: Use TODO(NAME)
+    H101,
+    # H202: assertRaises Exception too broad
+    H202,
+    # H233: Python 3.x incompatible use of print operator
+    H233,
+    # H301: one import per line
+    H301,
+    # H306: imports not in alphabetical order (time, os)
+    H306,
+    # H401: docstring should not start with a space
+    H401,
+    # H403: multi line docstrings should end on a new line
+    H403,
+    # H404: multi line docstring should start without a leading new line
+    H404,
+    # H405: multi line docstring summary not separated with an empty line
+    H405,
+    # H501: Do not use locals() for string formatting
+    H501
+# E501 is about line length. We use B950 which is like E501 but allows for
+# some flexibility.
+# E203 is whitespace before ':' which is against PEP8, but we ignore it on
+# account of Black.
+extend-ignore =
+    E501,
+    E203
+# Excluding some directories:
+exclude =
+    .git,
+    __pycache__,
+    build,
+    dist
+# Default max line length is 79 in PEP8, but project teams often prefer to extend this.
+# Black, the uncompromising code formatter, defaults to 88.
+max-line-length = 88
+# max-complexity should be set to this value or lower.
+max-complexity = 10
